@@ -1,48 +1,73 @@
 # G_AI-connman-script
+# Enhanced TCP Connection Testing Script
 
-## Purpose of this script
+## Overview
 
-This Bash script performs a TCP connection test to a specified IP address and port using various utilities such as `netcat`, `telnet`, and `nmap`. It also checks for required dependencies and logs the results to files for later analysis.
+This script is a comprehensive tool for diagnosing network issues by evaluating connectivity across all layers of the OSI model. It checks everything from basic physical connectivity (Layer 1) to application-level interactions (Layer 7), providing detailed feedback and logs for troubleshooting.
 
-## Script Overview
+## Features
 
-- **Target IP**: `192.168.1.10`
-- **Target Port**: `44818`
-- **Log Files**: 
-  - `YYYY-MM-DD_HH:MM:SS-tcp_connection_test.log` (General log)
-  - `YYYY-MM-DD_HH:MM:SS-tcp_connection_test_error.log` (Error log)
+- **Layer 1**: Tests physical connectivity using `ping`.
+- **Layer 2**: Resolves MAC address using `ip neigh`.
+- **Layer 3**: Validates IP reachability with `nmap`.
+- **Layer 4**: Tests TCP connection with `netcat`.
+- **Layer 5**: Establishes session via `telnet`.
+- **Layer 6**: Evaluates SSL/TLS configuration with `openssl`.
+- **Layer 7**: Performs application-level checks using `nmap` scripts.
+- **Logging**: Generates detailed logs and error reports.
 
-## Dependencies
+## Requirements
 
-The script checks for the following dependencies:
-- `nc` (netcat)
-- `telnet`
-- `nmap`
+- Supported operating systems: Linux-based systems
+- Dependencies:
+  - `ping`
+  - `ip`
+  - `nmap`
+  - `nc` (netcat)
+  - `telnet`
+  - `openssl`
 
-If any of these dependencies are missing, the script attempts to install them using `apt`.
+Ensure these dependencies are installed before running the script.
+
+## Installation
+
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/tim0n3/G_AI-connman-script.git
+   cd G_AI-connman-script
+   ```
+2. Make the script executable:
+   ```bash
+   chmod +x osi_connection_test.sh
+   ```
 
 ## Usage
 
-1. Make sure you have `bash` installed.
-2. Ensure you have `sudo` privileges if dependencies need to be installed.
-3. Execute the script using `./tcp_connection_test.sh`.
+1. Edit the `TARGET_IP` and `TARGET_PORT` variables in the script to match the target host and port.
+2. Run the script:
+   ```bash
+   ./osi_connection_test.sh
+   ```
+3. View the generated log files for detailed analysis:
+   - Connection status: `*-tcp_connection_test.log`
+   - Errors: `*-tcp_connection_test_error.log`
+   - OSI layer report: `*-OSI_Report.txt`
 
-## Logging
+## Disclaimer
 
-- **General Log**: Contains all script execution details, including successful connections and any errors encountered.
-- **Error Log**: Captures errors encountered during dependency checks, installation attempts, and connection tests.
+This script is provided "AS IS" without any warranty of any kind. By using this script, you agree to the following:
 
-## Output
+- The author is not responsible for any damage, breakage, or disruptions caused by running this script.
+- Use this script at your own risk.
 
-After execution, the script provides:
-- Connection status (success or failure) for `netcat`, `telnet`, and `nmap` tests.
-- Detailed logs for each test and overall script execution.
-- Timestamped log files for easy tracking and debugging.
+## License
 
-## Troubleshooting
+This project is licensed under the GNU General Public License v3.0. See the [LICENSE](LICENSE) file for details.
 
-If the script fails:
-- Check the error logs (`YYYY-MM-DD_HH:MM:SS-tcp_connection_test_error.log`) for specific error messages.
-- Verify network connectivity and target device availability.
-- Ensure dependencies are installed correctly and accessible.
+## Contributions
 
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/tim0n3/G_AI-connman-script/issues) to report a bug or request a feature.
+
+---
+
+Thank you for using this script! If you find it helpful, consider giving the repository a ⭐.
