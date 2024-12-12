@@ -1,4 +1,3 @@
-# G_AI-connman-script
 # Enhanced TCP Connection Testing Script
 
 ## Overview
@@ -33,8 +32,8 @@ Ensure these dependencies are installed before running the script.
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/tim0n3/G_AI-connman-script.git
-   cd G_AI-connman-script
+   git clone https://github.com/tim0n3/enhanced_osi_connection_test.git
+   cd enhanced_osi_connection_test
    ```
 2. Make the script executable:
    ```bash
@@ -66,7 +65,7 @@ This project is licensed under the GNU General Public License v3.0. See the [LIC
 
 ## Contributions
 
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/tim0n3/G_AI-connman-script/issues) to report a bug or request a feature.
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/tim0n3/enhanced_osi_connection_test/issues) to report a bug or request a feature.
 
 ---
 
